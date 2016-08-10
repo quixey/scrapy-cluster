@@ -13,7 +13,7 @@ kafka-monitor/logs/*
 redis-monitor/logs/*
 crawler/logs/*
 crawler/main.log
-localsettings.py
+# localsettings.py
 
 # Vagrant test VM
 .vagrant

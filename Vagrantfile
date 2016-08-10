@@ -11,6 +11,10 @@ Vagrant.configure(2) do |config|
     vb.cpus = 4
   end
 
+  config.vm.network "forwarded_port", guest: 6379, host: 6379
+  config.vm.network "forwarded_port", guest: 2181, host: 2181
+  config.vm.network "forwarded_port", guest: 9092, host: 9092
+
   config.vm.define 'scdev' do |node|
     node.vm.box = 'ubuntu/trusty64'
     node.vm.hostname = 'scdev'

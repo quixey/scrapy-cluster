@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from kafka import KafkaClient, SimpleConsumer
 from kafka.common import KafkaUnavailableError
 

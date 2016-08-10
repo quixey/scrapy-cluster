@@ -38,3 +38,4 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+/crawler/requirements.txt

@@ -1,5 +1,6 @@
 # Python binaries
 *.pyc
+*~
 
 # Sphinx
 docs/_build

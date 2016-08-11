@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 from kafka.client import KafkaClient
 from kafka.consumer import SimpleConsumer

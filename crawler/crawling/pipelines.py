@@ -11,6 +11,8 @@ import base64
 from kafka import KafkaClient, SimpleProducer
 from kafka.common import KafkaUnavailableError
 
+from scrapy import Request
+
 from crawling.items import RawResponseItem
 from scutils.log_factory import LogFactory
 
@@ -65,7 +67,7 @@ class LoggingBeforePipeline(object):
             item_copy['spiderid'] = spider.name
             self.logger.info('Scraped page', extra=item_copy)
             return item
-        elif isinstance(item):
+        elif isinstance(item, Request):
             item['logger'] = self.logger.name()
             self.logger.error('Scraper Retry', extra=item)
             return None
@@ -220,4 +222,3 @@ class LoggingAfterPipeline(object):
                 self.logger.error('Failed to send page to Kafka',
                                   extra=item_copy)
             return item
-

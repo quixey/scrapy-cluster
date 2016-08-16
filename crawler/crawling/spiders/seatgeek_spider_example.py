@@ -1,3 +1,6 @@
+
+import json
+
 import scrapy
 
 from scrapy.http import Request
@@ -23,13 +26,33 @@ class SeatGeekSpider(RedisSpider):
     def parse(self, response):
         selectorList = response.css('.cell-wrapper a')
         selectListLength = len(selectorList)
-        yield {
-            'html body' : response.body
-        }
-        for i in range(0, selectListLength):
-            yield{
-                'name' : str(response.css('.cell-wrapper a')[i].extract().split('>')[1].replace('</a',''))
+
+
+        def extract_info(i):
+            return str(response.css('.cell-wrapper a')[i].extract().split('>')[1].replace('</a',''))
+
+        artists = [extract_info(i) for i in range(selectListLength)]
+
+        if True:
+            item = RawResponseItem()
+            item["body"] = json.dumps(artists)
+            item["links"] = None
+            item["response_headers"] = None
+            item["request_headers"] = None
+            item["status_code"] = 200
+            item["status_msg"] = "OK"
+            yield item
+
+        if False:
+            yield {
+                'html body' : response.body
             }
+
+        if False:
+            for i in range(0, selectListLength):
+                yield{
+                    'name' : str(response.css('.cell-wrapper a')[i].extract().split('>')[1].replace('</a',''))
+                }
 
 '''   def start_requests(self):
         req = scrapy.Request(url=self.start_urls[0])

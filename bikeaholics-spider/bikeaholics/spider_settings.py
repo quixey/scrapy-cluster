@@ -9,9 +9,3 @@ MIDDLEWARES.extend([
     'frontera.contrib.middlewares.domain.DomainMiddleware',
     'frontera.contrib.middlewares.fingerprint.DomainFingerprintMiddleware'
 ])
-
-#--------------------------------------------------------
-# Crawl frontier backend
-#--------------------------------------------------------
-BACKEND = 'frontera.contrib.backends.remote.messagebus.MessageBusBackend'
-SPIDER_FEED_PARTITIONS = 2

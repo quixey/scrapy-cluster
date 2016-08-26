@@ -16,7 +16,7 @@ BACKEND = 'frontera.contrib.backends.sqlalchemy.revisiting.Backend'
 
 
 # SQLALCHEMYBACKEND_ENGINE = 'sqlite:///url_storage_dist.sqlite'
-SQLALCHEMYBACKEND_ENGINE = 'postgresql://scrapy:scrapy@qdesktop-don.quixey.com/bikeaholics'
+SQLALCHEMYBACKEND_ENGINE = 'postgresql://scrapy:scrapy@postgres.scrapy.quixey.com/bikeaholics'
 
 SQLALCHEMYBACKEND_ENGINE_ECHO = False
 SQLALCHEMYBACKEND_DROP_ALL_TABLES = True

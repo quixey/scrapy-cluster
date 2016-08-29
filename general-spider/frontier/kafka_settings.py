@@ -1,5 +1,8 @@
 
-PREFIX = "bikeaholics"
+# PREFIX *must* be customized for the crawler so different crawlers don't
+# go dumping stuff in each others kafka queues!
+
+PREFIX = "general"
 
 MESSAGE_BUS = 'frontera.contrib.messagebus.kafkabus.MessageBus'
 KAFKA_LOCATION = 'kafka.scrapy.quixey.com'

@@ -12,3 +12,6 @@ distclean: clean
 
 mac:
 	brew install postgresql
+
+ubuntu:
+	sudo apt-get install postgresql-server-dev-all

@@ -9,3 +9,6 @@ clean:
 
 distclean: clean
 	rm -rf venv
+
+mac:
+	brew install postgresql

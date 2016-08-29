@@ -19,9 +19,6 @@ class GeneralSpider(Spider):
         yield {"body": response.body}
 
         for link in self.le.extract_links(response):
-            if not link.url.startswith("http://www.bikeaholics.org"):
-                continue
-
             r = Request(url=link.url)
             r.meta.update(link_text=link.text)
             yield r

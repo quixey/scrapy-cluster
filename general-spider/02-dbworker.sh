@@ -1,4 +1,4 @@
 #!/bin/sh
 
-. ../../venv/bin/activate
+. ../venv/bin/activate
 exec python -m frontera.worker.db --config frontier.workersettings

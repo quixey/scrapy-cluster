@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from frontera.settings.default_settings import MIDDLEWARES
+from kafka_settings import *
 
 MAX_NEXT_REQUESTS = 256
 DELAY_ON_EMPTY = 5.0

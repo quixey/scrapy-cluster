@@ -16,7 +16,7 @@ class RandomProxy():
 	def generateRandomProxy(self):
 
 
-		fin = open('../../proxy_list.txt')
+		fin = open('proxy_list.txt')
 		proxies = {}
 		partsCompile = re.compile('(\w+://)(\w+:\w+@)?(.+)')
 

@@ -1,1 +1,2 @@
-https://www.appannie.com/apps/google-play/top/united-states
+http://www.appannie.com/apps/google-play/top-chart/united-states/overall
+http://www.appannie.com/apps/google-play/top-chart/india/overall

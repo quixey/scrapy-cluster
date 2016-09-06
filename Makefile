@@ -14,4 +14,4 @@ mac:
 	brew install postgresql
 
 ubuntu:
-	sudo apt-get install postgresql-server-dev-all
+	sudo apt-get install libffi-dev postgresql-server-dev-all

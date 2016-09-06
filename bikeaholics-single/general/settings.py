@@ -58,3 +58,7 @@ LOG_LEVEL = 'DEBUG'
 
 REACTOR_THREADPOOL_MAXSIZE = 32
 DNS_TIMEOUT = 180
+
+# Works...
+# FEED_URI = "bikeaholics.jsons"
+# FEED_FORMAT = "jsonlines"

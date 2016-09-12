@@ -16,7 +16,8 @@ MIDDLEWARES.extend([
 # BACKEND = 'frontera.contrib.backends.remote.messagebus.MessageBusBackend'
 # SPIDER_FEED_PARTITIONS = 2
 
-BACKEND = 'frontera.contrib.backends.sqlalchemy.revisiting.Backend'
+# BACKEND = 'frontera.contrib.backends.sqlalchemy.revisiting.Backend'
+BACKEND = 'backends.Backend'
 
 SQLALCHEMYBACKEND_ENGINE = 'postgresql://scrapy:scrapy@postgres.scrapy.quixey.com/bikeaholics'
 

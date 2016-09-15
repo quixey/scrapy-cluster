@@ -30,8 +30,9 @@ class YellowPagesSpider(scrapy.Spider):
                 if "/mip_" in url:
 #                if "/mip_000700_0_20160821" in url:
 #                    print "Top-url %s mod  " % url,sitelink['lastmod']
-                    mip_list.append(url) 
+                    mip_list.append(url)
 #                    yield Request(url,self.parse_mip,dont_filter=True)
+        response.replace(body = '' )
 
         for url in mip_list:
             yield Request(url,self.parse_mip,dont_filter=True)
@@ -61,6 +62,8 @@ class YellowPagesSpider(scrapy.Spider):
                         data_url = string.Template(self.api_url).substitute({'businessId': businessId})
 
                         yield Request(data_url,self.parse_api_response, meta={'lastmod':lastmod})
+
+        response.replace(body = '' ) 
 #        for businessId in biz_list:
 #            data_url = string.Template(self.api_url).substitute({'businessId': businessId})
 #            print "sending api request ", data_url

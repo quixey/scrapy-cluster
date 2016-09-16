@@ -3,7 +3,7 @@ from frontera.settings.default_settings import MIDDLEWARES
 from kafka_settings import *
 
 MAX_NEXT_REQUESTS = 512
-SPIDER_FEED_PARTITIONS = 1
+SPIDER_FEED_PARTITIONS = 2
 SPIDER_LOG_PARTITIONS = 1
 
 #--------------------------------------------------------

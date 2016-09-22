@@ -23,7 +23,7 @@ class AppleSpider(scrapy.Spider):
 	genres = response.selector.xpath('//div[@id="genre-nav"]')
 
         for genre in genres:
-            # URL for each genre 
+            # URL for each genre
             genre_page_links = response.xpath('//a[@class="top-level-genre"]/@href').extract()
 
             # For each genre, the apps are sorted by names and grouped under the correponding alphabet.
@@ -31,13 +31,13 @@ class AppleSpider(scrapy.Spider):
                 request = scrapy.Request(link, callback=self.parse_alphabets)
     #B    request = scrapy.Request("https://itunes.apple.com/us/genre/ios-lifestyle/id6012?mt=8", callback=self.parse_alphabets)
                 yield request
-                
+
 
     def parse_alphabets(self, response):
         
         print 'IN ALPHABETS'
 
-        # Get all the urls for each alphabet in this genre        
+        # Get all the urls for each alphabet in this genre
         alphabets = response.xpath('//ul[@class="list alpha"]/li/a/@href').extract()
 
         # For each of the alphabetic group, get the apps
@@ -59,7 +59,7 @@ class AppleSpider(scrapy.Spider):
             request = scrapy.Request(link, callback=self.parse_each_app)
             yield request
 
-        # See if there is a next page, and if yes keep going until we are done with the pages for this alphabet  
+        # See if there is a next page, and if yes keep going until we are done with the pages for this alphabet
         next_page = response.selector.xpath('//ul[@class="list paginate"]/li/a[@class="paginate-more"]/@href').extract()
         if not not next_page:
             print 'QDEBUG: ' + next_page[0]
@@ -69,7 +69,7 @@ class AppleSpider(scrapy.Spider):
             for page in pages:
                 print 'QDEBUG: ' + page
                 yield scrapy.Request(page, self.parse_app_list)
-   
+
 #B          yield scrapy.Request("https://itunes.apple.com/us/app/kindle-read-books-ebooks-magazines/id302584613?mt=8", self.parse_each_app)
 #B          yield scrapy.Request("https://itunes.apple.com/us/app/jinnyboytv/id1041203205?mt=8", self.parse_each_app)
 #B          yield scrapy.Request("https://itunes.apple.com/us/app/98.6-fever-watch/id999337846?mt=8", self.parse_each_app)
@@ -84,8 +84,8 @@ class AppleSpider(scrapy.Spider):
 #B          yield scrapy.Request("https://itunes.apple.com/us/app/5-generations-one-port/id628083063?mt=8", self.parse_each_app)
 
 
-        
- 
+
+
     def parse_each_app(self, response):
 
         # Get the info for the app
@@ -98,8 +98,8 @@ class AppleSpider(scrapy.Spider):
 
 #BC        item['description'] = app.xpath('.//p[@itemprop="description"]/text()').extract()
 #BC        item['author'] = app.xpath('.//span[@itemprop="author"]/span[@itemprop="name"]/text()').extract()
- 
-#BC        item['app_version'] = app.xpath('//span[@itemprop="softwareVersion"]/text()').extract()  
+
+#BC        item['app_version'] = app.xpath('//span[@itemprop="softwareVersion"]/text()').extract()
 #BC        item['download_url'] = app.xpath('.//div[@class="lockup product application"]/a/@href').extract()
 #BC        item['os_requirements'] = app.xpath('.//span[@itemprop="operatingSystem"]/text()').extract()
 
@@ -115,6 +115,3 @@ class AppleSpider(scrapy.Spider):
 #BC     NEED TO ADD THE REST OF THE FIELDS
 
         yield item
- 
-
-

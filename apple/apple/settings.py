@@ -25,10 +25,9 @@ ROBOTSTXT_OBEY = True
 # Retry many times since proxies often fail
 RETRY_TIMES = 10
 # Retry on most error codes since proxies fail for different reasons
-RETRY_HTTP_CODES = [500, 503, 504, 400, 404, 408]
+RETRY_HTTP_CODES = [500, 503, 504, 400, 403, 404, 408]
 
 DOWNLOADER_MIDDLEWARES = {
-    'scrapy.downloadermiddlewares.retry.RetryMiddleware' : 90,
     'apple.spiders.randomproxy.RandomProxy' : 100,
     'apple.spiders.robots_txt_middleware.robots_txt_middleware' : 110,
     'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware' : 110,
@@ -53,7 +52,7 @@ SPIDER_MIDDLEWARES.update({
 })
 
 
-# Proxy list 
+# Proxy list
 PROXY_LIST = './proxy/list.txt'
 PROXY_USER_KEY = 'quixey2'
 PROXY_USER_PASS = 'fg34gdsf85gdw'
@@ -62,7 +61,7 @@ HTTPCACHE_ENABLED = False
 REDIRECT_ENABLED = True
 COOKIES_ENABLED = False
 DOWNLOAD_TIMEOUT = 240
-RETRY_ENABLED = False
+RETRY_ENABLED = True
 DOWNLOAD_MAXSIZE = 1*1024*1024
 
 # auto throttling
@@ -76,7 +75,7 @@ AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0
 # concurrency
 CONCURRENT_REQUESTS = 64
 CONCURRENT_REQUESTS_PER_DOMAIN = 10
-DOWNLOAD_DELAY = 0.5
+DOWNLOAD_DELAY = 0.2
 
 LOG_LEVEL = 'DEBUG'
 
